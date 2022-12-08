@@ -11,11 +11,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(bodyParser.json());
-app.use('/.netlify/functions/server', router);
-// app.listen(process.env.PORT || 5000, () => console.log("Server Running"));
-app.use('/', (req, res) => res.sendFile(path.join(__dirname, '../dist/index.html')));
-console.log(process.env.EMAIL_USER);
-console.log(process.env.EMAIL_PASS);
+//app.use("/", router);
+app.use("/.netlify/functions/server", router);
+//app.listen(process.env.PORT || 5000, () => console.log("Server Running"));
+ app.use("/", (req, res) => res.sendFile(path.join(__dirname, '../dist/index.html')));
 
 const contactEmail = nodemailer.createTransport({
   service: 'gmail',
@@ -74,5 +73,5 @@ router.post("/contact", (req, res) => {
   });
 });
 
-module.exports = app;
-module.exports.handler = serverless(app);
+ module.exports = app;
+ module.exports.handler = serverless(app);
