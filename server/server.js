@@ -61,23 +61,24 @@ router.post("/contact", (req, res) => {
     console.log(info.envelope);
     console.log(info.messageId);
   });
+  
   contactEmail.sendMail(mail, (error) => {
     if (error) {
       res.json(error);
     } else {
       res.json({ code: 200, status: "Message Sent" });
-      contactEmail.sendMail({
-        from: "jayrudani1414@gmail.com",
-        to: email,
-        subject: "Submission was successful",
-        text: `Thank you for contacting us!\n\nForm Details:\nName: ${name}\nEmail: ${email}\nMessage: ${message}`
-       }, function(error, info){
-        if(error) {
-          console.log(error);
-        } else{
-          console.log('Message sent: ' + info.response);
-        }
-      });
+      // contactEmail.sendMail({
+      //   from: "jayrudani1414@gmail.com",
+      //   to: email,
+      //   subject: "Submission was successful",
+      //   text: `Thank you for contacting us!\n\nForm Details:\nName: ${name}\nEmail: ${email}\nMessage: ${message}`
+      //  }, function(error, info){
+      //   if(error) {
+      //     console.log(error);
+      //   } else{
+      //     console.log('Message sent: ' + info.response);
+      //   }
+      // });
     }
   });
 });
