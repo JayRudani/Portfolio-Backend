@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use('/.netlify/functions/server', router);
 // app.listen(process.env.PORT || 5000, () => console.log("Server Running"));
-app.use('/', (req, res) => res.sendFile(path.join(__dirname, '../index.html')));
+app.use('/', (req, res) => res.sendFile(path.join(__dirname, '../dist/index.html')));
 console.log(process.env.EMAIL_USER);
 console.log(process.env.EMAIL_PASS);
 
