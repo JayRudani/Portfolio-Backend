@@ -59,7 +59,7 @@ router.post("/contact", (req, res) => {
       res.json({ code: 200, status: "Message Sent" });
       contactEmail.sendMail({
         from: "jayrudani1414@gmail.com",
-        to: email,
+        to: `${email}`,
         subject: "Submission was successful",
         text: `Thank you for contacting us!\n\nForm Details:\nName: ${name}\nEmail: ${email}\nMessage: ${message}`
       }, function(error, info){
